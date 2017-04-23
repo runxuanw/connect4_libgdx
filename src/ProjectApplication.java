@@ -34,7 +34,7 @@ public class ProjectApplication implements ApplicationListener {
 		screen = new MainScreen(this);
 		game = new GameScreen(this);
 		//game.hide();
-		display = screen;
+		display = game;
 		display.show();
 	}
 
