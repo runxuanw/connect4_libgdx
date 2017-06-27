@@ -1,4 +1,4 @@
-package com.pennypop.project;
+package connect4;
 
 //process all game data
 //haven't add draw case

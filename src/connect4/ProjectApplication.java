@@ -1,22 +1,13 @@
-package com.pennypop.project;
+package connect4;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-/**
- * The {@link ApplicationListener} for this project, create(), resize() and
- * render() are the only methods that are relevant
- * 
- * @author Richard Taylor
- * */
+
+
 public class ProjectApplication implements ApplicationListener {
 
 	private Screen screen;
@@ -24,7 +15,7 @@ public class ProjectApplication implements ApplicationListener {
 	private Screen display;
 
 	public static void main(String[] args) {
-		new LwjglApplication(new ProjectApplication(), "PennyPop", 1280, 720,true);
+		new LwjglApplication(new ProjectApplication(), "Connect Four", 1280, 720, true);
 	}
 
 	@Override
@@ -33,15 +24,14 @@ public class ProjectApplication implements ApplicationListener {
 		
 		screen = new MainScreen(this);
 		game = new GameScreen(this);
-		//game.hide();
-		display = game;
+
+		display = screen;
 		display.show();
 	}
 
 	@Override
 	public void dispose() {
 
-		
 		screen.hide();
 		screen.dispose();
 		game.hide();
@@ -58,7 +48,6 @@ public class ProjectApplication implements ApplicationListener {
 	public void render() {
 		clearWhite();
 		display.render(Gdx.graphics.getDeltaTime());
-		//game.render(Gdx.graphics.getDeltaTime());
 	}
 
 	/** Clears the screen with a white color */
@@ -70,13 +59,11 @@ public class ProjectApplication implements ApplicationListener {
 	@Override
 	public void resize(int width, int height) {
 		screen.resize(width, height);
-		//game.resize(width, height);
 	}
 
 	@Override
 	public void resume() {
 		screen.resume();
-		//game.resume();
 	}
 
 	public void switchScreen() {

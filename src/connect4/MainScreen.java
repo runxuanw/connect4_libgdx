@@ -1,4 +1,4 @@
-package com.pennypop.project;
+package connect4;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -12,7 +12,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -20,14 +19,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.ObjectMap;
-import com.badlogic.gdx.utils.ObjectMap.Entries;
 import com.badlogic.gdx.utils.OrderedMap;
 
-/**
- * This is where you screen code will go, any UI should be in here
- * 
- * @author Richard Taylor
- */
+
 public class MainScreen implements Screen {
 	
 	private final Stage stage;
@@ -48,18 +42,6 @@ public class MainScreen implements Screen {
 		batch = new SpriteBatch();    
         font = new BitmapFont(Gdx.files.local("assets/font.fnt"), false);
 
-        
-        
-        Image sfx = GameScreen.createImg("assets/sfxButton.png");
-        sfx.setPosition(300, Gdx.graphics.getHeight()/2-50);
-        sfx.addListener(new ClickListener() {
-        	public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
-		    {
-	        	Gdx.audio.newSound(Gdx.files.internal("assets/button_click.wav")).play();
-	        	return true;
-		    }
-        });
-        stage.addActor(sfx);
         
         Image apiBtn = GameScreen.createImg("assets/apiButton.png");
         apiBtn.setPosition(420, Gdx.graphics.getHeight()/2-50);
@@ -85,7 +67,7 @@ public class MainScreen implements Screen {
         stage.addActor(startGame);
 
         //Text title = ;
-        stage.addActor(new Text(font, 400, 500, "PennyPop", Color.RED, 1));
+        stage.addActor(new Text(font, 400, 500, "Connect Four", Color.RED, 1));
 	}
 
 	@Override
